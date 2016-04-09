@@ -13,28 +13,30 @@
         <h1><b><i> Bandeja de Salida</i></b></h1>
           <div class="form-group col-sm-3">
             <label for="usr"></label>
-            <input type="text" class="form-control input-lg " placeholder="Buscar Correo" id="usr">
+            <input type="text" class="form-control input" placeholder="Buscar Correo" id="usr">
+ <br>
  <a href="{{URL::route('logout')}}"><button  id ="btn"class = " glyphicon glyphicon-user btn btn-xs btn-danger">Cerrar Sesion </button></a>
-          </div>     
+          </div> 
+
     </div>
   </header>
   <form name ="crear">
     <div class = "container col-lg-2">
       <div class="btn btn-group-vertical">
-        <div class="btn-group ">
-         <button type="button" class="btn btn-lg btn-success glyphicon glyphicon-pencil" data-toggle="modal" data-target="#myModal"> Redactar</button>
-       
+        <div class="btn-group">
+          <a href="{{URL::to('mail/create')}}"type="button" class="btn btn-lg btn-success glyphicon glyphicon-pencil">Redactar</a>
+        
                   <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button id =  "closemodal" type="button" class=" glyphicon glyphicon-minus-sign close btn-danger" data-dismiss="modal" onclick = "reiniciar()"></button>
+                  <button id =  "closemodal" type="button" class=" glyphicon glyphicon-minus-sign close btn-danger" data-dismiss="modal"></button>
                   <div class="form-group">
                     <label  for="usr" >Destinatario: </label>
-                    <input  name="email" id = "pedro" type="email" class="form-control" required id="Pedro" >
+                    <input  name="email" type="email" class="form-control">
                   </div>
                   <div class="form-group">
-                    <label    for="pwd">Asunto:</label>
+                    <label    for="pwd">asunto:</label>
                     <input  id = "asunto" type="text" class="form-control" id="Asunto" >
                   </div>      
                   <div class="form-group">
@@ -43,13 +45,12 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" value ="enviar" class=" glyphicon glyphicon-floppy-save btn btn-success" onclick="crearCorreo()"> Guardar</button> 
-                  <button type="button" id ="eliminar" class=" glyphicon glyphicon-trash btn btn-success" onclick="borrar()"> Eliminar</button></div>
+                  <button type="button" value ="enviar" class=" glyphicon glyphicon-floppy-save btn btn-success"> Guardar</button> 
+                  <button type="button" id ="eliminar" class = " glyphicon glyphicon-user btn btn-xs btn-danger"> Eliminar</button></div>
                 </div>
               </div>
             </div>
-          
-        </div>
+           </div>
         <div class="btn-group"><button id ="btn1"class = " glyphicon glyphicon-envelope btn btn-lg btn-default">  Enviados </button>
         </div>
         <div class="btn-group"><button  id ="btn2"class = " glyphicon glyphicon-envelope btn btn-lg btn-default">  Salida </button>
@@ -57,22 +58,22 @@
       </div>
     </div>
   </form>
-  <div class ="container col-xs-4">
-   <table class=" table table-responsive"id="tablacargar"class="col-xs-12">
+  <div class ="container col-xs-8">
+   <table class=" table table-responsive"id="tablacargar"class="col-lg-12">
     <thead >
       <tr>
-       <th>Fecha </th>
+       <th>Destinatario</th>
        <th>Asunto</th>
-       <th>Contenido</th>
-    
-
-     </tr>
+       <th>Mensaje</th>
+       <th>Fecha</th>
+       </tr>
    </thead>
    <tbody >
 @foreach ($mails as $mail)
     <tr>
       <td>{{$mail->destino}}</td>
       <td>{{$mail->asunto}}</td>
+      <td>{{$mail->mensaje}}</td>
       <td>{{$mail->fecha}}</td>
       <td><a class="btn btn-info" href="{{URL::route('mail.edit',$mail->id)}}" role="button">Edit</a></td>
    <td>

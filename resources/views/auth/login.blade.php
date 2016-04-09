@@ -15,16 +15,7 @@
 
 <body>
   <body>
-@if(count($errors)>0)
-<div class = "alert alert-danger">
-  <ul>
-    @foreach($errors->all()as $error)
-<li>{{$error}}</li>
-@endforeach
-</ul>
-</div>
-@endif
-  
+ 
   <div class = "modal-dialog">
     <div class = "modal-content">
       <div class = "modal-header">
@@ -46,7 +37,6 @@
       </form>
 
   <div class ="form-group">
-       <button type="submit" class="btn btn-default" id="boton-guardar">Ingresar</button>
        <button type = "submit" class = " glyphicon glyphicon-user btn btn-sm btn-success active pull-right"> Login</button>
       </div>
       <div class ="modal-footer"></div>
@@ -58,7 +48,7 @@
    <div class ="form-group">
     <span class = "pull-right"><a href="/auth/register">Regístrate para obtener una cuenta nueva</a>
     </span>
-<p>k</p>  
+    
   </div>  
 </div>
 </div>

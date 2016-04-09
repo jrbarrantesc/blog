@@ -28,23 +28,21 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
 
-	Route::get('home',['uses'=>'Home@index','as'=>'home']);
-
+	Route::get('home',['uses'=>'home@index','as'=>'home']);
     //
     // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('logout', ['uses'=>'Auth\AuthController@getLogout','as'=>'logout']);
+Route::get('logout', ['uses'=>'Auth\AuthController@logout','as'=>'logout']);
+
 
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+
 // Bandeja routes...nombre de la vista nombre del controlador y el metodo
 Route::get('bandeja', 'homeController@index');
-Route::resource('mail','mailcontroler');  
-
-
-
+Route::resource('mail','Mailcontroller');  
 
 });

@@ -15,7 +15,7 @@ class homeController extends Controller
 
     	$mails = DB::select('select * from mails');
 
-        return view('home', ['mails' => $mails]);
+        return view('bandeja', ['mails' => $mails]);
 
 
     }
