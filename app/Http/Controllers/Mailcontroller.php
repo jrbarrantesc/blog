@@ -44,8 +44,7 @@ public function create()
     }
 
     public function show($id)
-    {
-        
+    { 
     }
 
   public function store(Request $request)
@@ -64,6 +63,68 @@ public function sendMail()
     $message->to('foo@example.com', 'John Smith')->subject('Welcome!');
 });
             
+    }
+/*    class enviar extends CI_Controller {
+
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('model_correo');
+        $this->load->library('session');
+    }*/
+    function send() {
+
+        $data = $this->Mail->getEmails();
+
+        include "class.phpmailer.php";
+        include "class.smtp.php";
+        foreach ($data as $valor) {
+
+            $config = Array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'smtp.mandrillapp.com',
+                'smtp_port' => 587,
+                'smtp_user' => 'AlexanderBarrantes10@gmail.com', // change it to yours
+                'smtp_pass' => 'NlXJVAqPJPDrEYj-e-jgjQ', // change it to yours
+                'mailtype' => 'html',
+                'charset' => 'iso-8859-1',
+                'wordwrap' => TRUE,
+            );
+
+            $message = '';
+            $this->load->library('email', $config);
+            $this->email->set_newline("\r\n");
+            $this->email->from('alexanderbarrantes10@gmail.com'); // change it to yours
+            $this->email->to($valor['destinatario']);
+            //$mail->AddAddress($row['email'], $row['name']);// change it to yours
+            $this->email->subject($valor['asunto']);
+            $this->email->message($valor['mensaje']);
+            if ($this->email->send()) {
+                $this->model_correo->update_emailStatus($valor['id']);
+
+            } else {
+                show_error($this->email->print_debugger());
+            }
+
+            $urln = base_url() . "email/bandeja";
+            redirect($urln);
+            $this->email->insert($data);
+
+        }
+
+    }
+
+public function getEmails() {
+        $this->db->where("estado", "Pendiente");
+        $this->db->select("*");
+        $this->db->from('emails');
+        $query = $this->db->get();
+        return ($query->result_array());
+    }
+
+    public function update_emailStatus($id) {
+        $this->db->where("id", $id);
+        $this->db->set("estado", "Enviado");
+        $this->db->update("emails");
     }
 
 }

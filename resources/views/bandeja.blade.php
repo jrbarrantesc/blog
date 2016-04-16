@@ -9,22 +9,28 @@
   </head>
 <header>
   <body>
+ <a href="{{URL::route('logout')}}"><button  id ="btn"class = " glyphicon glyphicon-user btn btn-xs btn-danger">Cerrar Sesion </button></a>
+
         <div class="container">
         <h1><b><i> Bandeja de Salida</i></b></h1>
           <div class="form-group col-sm-3">
             <label for="usr"></label>
             <input type="text" class="form-control input" placeholder="Buscar Correo" id="usr">
  <br>
- <a href="{{URL::route('logout')}}"><button  id ="btn"class = " glyphicon glyphicon-user btn btn-xs btn-danger">Cerrar Sesion </button></a>
           </div> 
+
 
     </div>
   </header>
+
   <form name ="crear">
-    <div class = "container col-lg-2">
+    <br>
+    <a href="{{URL::to('mail/create')}}"type="button" class="btn btn-lg btn-success glyphicon glyphicon-pencil" style ="left:30px"> Redactar</a>
+<br>
+    <br>
+        <div class = "container col-lg-2">
       <div class="btn btn-group-vertical">
         <div class="btn-group">
-          <a href="{{URL::to('mail/create')}}"type="button" class="btn btn-lg btn-success glyphicon glyphicon-pencil">Redactar</a>
         
                   <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-lg">
@@ -53,7 +59,9 @@
            </div>
         <div class="btn-group"><button id ="btn1"class = " glyphicon glyphicon-envelope btn btn-lg btn-default">  Enviados </button>
         </div>
-        <div class="btn-group"><button  id ="btn2"class = " glyphicon glyphicon-envelope btn btn-lg btn-default">  Salida </button>
+        <div class="btn-group"><a href="{{URL::to('bandeja')}}"></a><button type = "button" id ="btn2"class = " glyphicon glyphicon-envelope btn btn-lg btn-default"> Salida </button>
+        </div>
+        <div class="btn-group"><button  id ="btn2"class = " glyphicon glyphicon-envelope btn btn-lg btn-default">  Borrador </button>
         </div>
       </div>
     </div>
@@ -75,14 +83,13 @@
       <td>{{$mail->asunto}}</td>
       <td>{{$mail->mensaje}}</td>
       <td>{{$mail->fecha}}</td>
-      <td><a class="btn btn-info" href="{{URL::route('mail.edit',$mail->id)}}" role="button">Edit</a></td>
+      <td><a class="btn btn-info" href="{{URL::route('mail.edit',$mail->id)}}" role="button">Editar</a></td>
    <td>
 
 {!!  Form::open(['route'=>['mail.destroy' ,$mail->id],'method'=>'delete'])!!}
-<button type="submit" class="btn btn-danger">Delete</button>
+<button type="submit" class="btn btn-danger">Eliminar</button>
 {!!Form::close()!!}
-   </td>
-      
+   </td>  
     </tr>
 
 

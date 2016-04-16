@@ -9,11 +9,16 @@
   <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/bootstrap/css/login.css">
    <link rel="stylesheet" href="/bootstrap/css/screen.css">
+  <div class="form-group col-sm-13" style="text-align:right">  
+ <a href="{{URL::route('logout')}}"><button  id ="btn"class = " glyphicon glyphicon-user btn btn-xs btn-danger">Cerrar Sesion </button></a>
+          </div> 
+ <div class="container">
+      <br>
+        <h1><b><i> Editar Correo</i></b></h1>
+      
 
+    </div>
 
-</head>
-
-<body>
   <body>
     <div class="container">
       <section class="main row">
@@ -24,10 +29,7 @@
                 <label for="usr"></label>
                </div>
             </form>
-            <button type="button" class="btn btn-default">
-              <span class="glyphicon glyphicon-search"></span>Buscar
-            </button>
-          </article>
+           </article>
         </section>
       </div>
          </article>
@@ -46,8 +48,8 @@
         </div>
 
         <div class="btn-group-vertical">
-          <button type="button" class="btn btn-default" id="btn2"><b>Salida</b></button>
-          <button type="button" class="btn btn-default" id="btn1">Enviados</button>
+      <div class="btn-group"><a href="{{URL::to('bandeja')}}"  id ="btn2"class = " glyphicon phicon envelope btn btn-lg btn-default">  Salida</a>  
+         <button type="button" class="btn btn-default" id="btn1">Enviados</button>
           <button type="button" class="btn btn-default" id="btn">Salir</button>
         </div>
       </div>
@@ -69,10 +71,11 @@
     <label for="example">mensaje</label>
     {!!Form::textarea ('mensaje',null,['class'=>'form-control','placeholder'=>'Write the message here'])!!}
 </div>
+<div style="text-align:right">
 {!!Form::open(['route'=>['mail.update' ,$email->id],'method'=>'update'])!!}
-<button type="submit" class="btn btn-danger">Editar</button>
+<button type="submit" class="btn btn-danger">Guardar  </button>
 {!!Form::close()!!}
-
+</div>
 
   </div>
 </div>

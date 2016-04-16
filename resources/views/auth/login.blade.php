@@ -21,32 +21,40 @@
       <div class = "modal-header">
         <h1 class = "text-center ">LOGIN</h1>
       </div>
+      <br>
       <div class = "modal-body">
         <form method="POST" action="/auth/login">
-    {!! csrf_field() !!}
+      
           <div class="form-group">
          <form class = " form-inline col-md-12 center-block"></form>
-
-        <div class = "form-group">
+       <div class = "form-group">
           <input name ="email"type = "email" class = "form-control input-lg" placeholder="Email" id= "username" required >
         </div>
 
         <div class = "form-group ">
           <input name = "password"type = "password" class = "form-control input-lg" placeholder="Contraseña" id = "userpassword" required>
         </div>
+        
       </form>
 
   <div class ="form-group">
+
        <button type = "submit" class = " glyphicon glyphicon-user btn btn-sm btn-success active pull-right"> Login</button>
       </div>
+      <br>
+      <br>
       <div class ="modal-footer"></div>
-      <div class = "col-md-12"></div>
+      <br>
+            <div class = "col-md-12"></div>
+   
       <div class ="form-group">
+   
        <span class = "pull-right">¿Eres nuevo en tumail.es?</span>
      </span>
-   </div><br>
+   </div>
+   <br>
    <div class ="form-group">
-    <span class = "pull-right"><a href="/auth/register">Regístrate para obtener una cuenta nueva</a>
+    <span class = "pull-right "><a href="/auth/register">Regístrate para obtener una cuenta nueva</a>
     </span>
     
   </div>  
