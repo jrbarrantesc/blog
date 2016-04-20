@@ -9,7 +9,7 @@
 	<title></title>
 </head>
 <body>
-<!--@if(count($errors)>0)
+@if(count($errors)>0)
 <div class = "alert alert-danger">
 	<ul>
 		@foreach($errors->all()as $error)
@@ -17,7 +17,7 @@
 @endforeach
 </ul>
 </div>
-@endif-->
+@endif
 <!-- resources/views/auth/register.blade.php -->
 
 <form method="POST" action="/auth/register">
@@ -29,6 +29,11 @@
       <h1 class = "text-center ">Registrarse</h1>
 
 
+
+ <div >
+  <a href="{{URL::to('auth/login')}}"  class = " pull-right glyphicon glyphicon-user btn btn-xs btn-default">Salir</a>  
+      </div>
+      <br>
     <div class = "form-group">
         Name
         <input class = "form-control input-lg" type="text" name="name" value="{{ old('name') }}">
@@ -52,12 +57,9 @@
         <input class = "form-control input-lg" type="password" name="password_confirmation">
     </div>
 <div class ="form">
-     <input type = "submit" class = " btn btn-success active pull-right" value = "Registrarse" onclick = "register()">
+     <input type = "submit" class = " btn btn-success active pull-right" value = "Registrarse">
       </div>
-<div class="form">
 
- <a href="{{URL::route('logout')}}"><button  id ="btn"class = " glyphicon glyphicon-user btn btn-xs btn-danger">Salir</button></a>
-</div> 
 </form>
 
 

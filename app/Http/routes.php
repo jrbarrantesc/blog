@@ -45,4 +45,5 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('bandeja', 'homeController@index');
 Route::resource('mail','Mailcontroller');  
 
+
 });

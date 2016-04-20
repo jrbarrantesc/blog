@@ -55,11 +55,12 @@
       <div class = "btn-group">
         <a href="{{URL::to('mail/create')}}"type="button" class="btn btn-lg btn-success glyphicon glyphicon-pencil">Redactar</a>
       </div> 
-      <div class="btn-group"><button id ="btn1"class = " glyphicon glyphicon-envelope btn btn-lg btn-default">  Enviados </button>
+      <div class="btn-group"><a href="{{URL::to('bandeja')}}"  id ="btn2"class = " glyphicon glyphicon-envelope btn btn-lg btn-default">Enviados</a>  
       </div>
-      <div class="btn-group"><a href="{{URL::to('bandeja')}}"  id ="btn2"class = " glyphicon glyphicon-envelope btn btn-lg btn-default">  Salida</a>  
+       <div class="btn-group"><a href="{{URL::to('auth/login')}}"  id ="btn2"class = " glyphicon glyphicon-envelope btn btn-lg btn-default">Salida</a>  
       </div>
-    </div>
+      </div>
+       </div>
   </div>
 </div>
 </form>

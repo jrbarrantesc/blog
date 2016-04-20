@@ -4,6 +4,7 @@ namespace Illuminate\Foundation\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Mail;
 
 trait RegistersUsers
 {
@@ -52,6 +53,7 @@ trait RegistersUsers
      */
     public function register(Request $request)
     {
+       
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
@@ -61,8 +63,21 @@ trait RegistersUsers
         }
 
         Auth::guard($this->getGuard())->login($this->create($request->all()));
+        Auth::logout();
 
-        return redirect($this->redirectPath());
+          $data = array(
+        'name' => "Learning Laravel",
+        'destinatario'=>$request->email,
+    );
+
+   \Mail::send('emails.welcome', $data, function ($message) use ($data){
+
+        $message->from('alexanderbarrantes10@gmail.com', 'Json');
+        $message->to($data['destinatario'])->subject('Confirmacion');
+
+    });
+        return redirect('auth/login');
+
     }
 
     /**
