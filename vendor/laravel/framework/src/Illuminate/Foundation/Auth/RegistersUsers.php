@@ -53,7 +53,7 @@ trait RegistersUsers
      */
     public function register(Request $request)
     {
-       
+       $randon = str_random(40);
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
@@ -61,19 +61,22 @@ trait RegistersUsers
                 $request, $validator
             );
         }
-
-        Auth::guard($this->getGuard())->login($this->create($request->all()));
+//dd($request);
+        Auth::guard($this->getGuard())->login($this->create($request->all(),$randon));
         Auth::logout();
 
           $data = array(
         'name' => "Learning Laravel",
         'destinatario'=>$request->email,
+        'token'=>$randon,
     );
 
    \Mail::send('emails.welcome', $data, function ($message) use ($data){
 
         $message->from('alexanderbarrantes10@gmail.com', 'Json');
         $message->to($data['destinatario'])->subject('Confirmacion');
+        
+       
 
     });
         return redirect('auth/login');

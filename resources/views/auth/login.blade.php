@@ -38,7 +38,7 @@
       </form>
 
   <div class ="form-group">
-
+{!!  Form::open($mail ,['route'=>['mail.verificarRegistro',$status],'method'=>'post'])!!}
        <button type = "submit" class = " glyphicon glyphicon-user btn btn-sm btn-success active pull-right"> Login</button>
       </div>
       <br>

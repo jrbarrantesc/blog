@@ -83,7 +83,7 @@
       <td>{{$mail->asunto}}</td>
       <td>{{$mail->mensaje}}</td>
       <td>{{$mail->fecha}}</td>
-      <td><a class="btn btn-info" href="{{URL::route('mail.edit',$mail->id)}}" role="button">Editar</a></td>
+      <td><a class="btn btn-info" href="{{URL::route('mail.edit',$mail->id)}}" type="button">Editar</a></td>
    <td>
 
 {!!  Form::open(['route'=>['mail.destroy' ,$mail->id],'method'=>'delete'])!!}

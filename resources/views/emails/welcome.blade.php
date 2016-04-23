@@ -8,10 +8,10 @@
 
 <div>
     Welcome to {!! $name !!} website!
-    Click en el boton para comfirmar su cuenta !!!
-
-     <button>Comfirmar <a href="/auth/login"></a></button>
-
+    <br>
+    Bienvenido
+    Click en el link para comfirmar su cuenta !!!    
+     <a href="http://localhost:8000/mail/Confirmacion/{!! $token !!}">Confirmar su nueva cuenta</a>
 </div>
 
 </body>
