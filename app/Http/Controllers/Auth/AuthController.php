@@ -68,6 +68,7 @@ class AuthController extends Controller
      * @return User
      */
 
+
     protected function create(array $data,$token)
     {
 

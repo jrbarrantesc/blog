@@ -29,12 +29,15 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
 
 	Route::get('home',['uses'=>'home@index','as'=>'home']);
+	Route::get('enviados',['uses'=>'sentController@enviar','as'=>'enviados']);
+
+
     //
     // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('logout', ['uses'=>'Auth\AuthController@logout','as'=>'logout']);
-
+Route::post('controlUsuarios', 'controlUsuario\@login');
 
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
@@ -42,11 +45,10 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('mail/Confirmacion/{remember_token}', 'Mailcontroller@Confirmacion');
 
 
+
 // Bandeja routes...nombre de la vista nombre del controlador y el metodo
 
 Route::get('bandeja', 'homeController@index');
 Route::resource('mail','Mailcontroller');  
-  
-
-
+Route::get('borrador','borradorController@borrar');
 });

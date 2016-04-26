@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="es">
 
@@ -15,16 +15,20 @@
 
 <body>
   <body>
- 
+
   <div class = "modal-dialog">
     <div class = "modal-content">
       <div class = "modal-header">
-        <h1 class = "text-center ">LOGIN</h1>
+        <b>
+          <h1 class = "text-center ">
+            LOGIN
+          </h1>
+        </b>
       </div>
       <br>
       <div class = "modal-body">
         <form method="POST" action="/auth/login">
-      
+
           <div class="form-group">
          <form class = " form-inline col-md-12 center-block"></form>
        <div class = "form-group">
@@ -34,21 +38,22 @@
         <div class = "form-group ">
           <input name = "password"type = "password" class = "form-control input-lg" placeholder="Contraseña" id = "userpassword" required>
         </div>
-        
+
       </form>
 
   <div class ="form-group">
-{!!  Form::open($mail ,['route'=>['mail.verificarRegistro',$status],'method'=>'post'])!!}
+
        <button type = "submit" class = " glyphicon glyphicon-user btn btn-sm btn-success active pull-right"> Login</button>
       </div>
+
       <br>
       <br>
       <div class ="modal-footer"></div>
       <br>
             <div class = "col-md-12"></div>
-   
+
       <div class ="form-group">
-   
+
        <span class = "pull-right">¿Eres nuevo en tumail.es?</span>
      </span>
    </div>
@@ -56,8 +61,8 @@
    <div class ="form-group">
     <span class = "pull-right "><a href="/auth/register">Regístrate para obtener una cuenta nueva</a>
     </span>
-    
-  </div>  
+
+  </div>
 </div>
 </div>
 </div>

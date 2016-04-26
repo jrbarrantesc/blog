@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <title>Salida</title>
+  <title>Borrador</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="\bootstrap\css\bootstrap.min.css">
@@ -9,15 +9,17 @@
 </head>
 <header>
   <div class="container">
-    <h1><b><i> Bandeja de Salida</i></b></h1>
+    <h1><b><i> Bandeja de Borrador</i></b></h1>
     <br>
   </div>
  <a href="{{URL::route('logout')}}"><button style="right"class = " glyphicon glyphicon-user btn btn-xs btn-danger">Cerrar Sesion </button></a>
+
+
 </div>
 </header>
 
 <form name ="crear">
-   <div class = "container col-lg-2">
+  <div class = "container col-lg-2">
     <div class="btn btn-group-vertical">
       <div class="btn-group">
 
@@ -46,7 +48,7 @@
             </div>
           </div>
         </div>
-       <div class="btn-group-vertical">
+        <div class="btn-group-vertical">
       <div class = "btn-group">
         <a href="{{URL::to('mail/create')}}"type="button" class="btn btn-lg btn-success glyphicon glyphicon-pencil">Redactar</a>
       </div> 
@@ -57,7 +59,8 @@
             <div class="btn-group"><a href="{{URL::to('borrador')}}"  id ="btn2"class = " glyphicon glyphicon-envelope btn btn-lg btn-default">Borrador</a>  
       </div>
     </div>
-             </div>
+        </div>
+      
     </div>
   </form>
   <div class ="container col-xs-8">

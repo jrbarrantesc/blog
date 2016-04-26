@@ -13,11 +13,9 @@ class homeController extends Controller
     //
     public function index(){
 
-    	$mails = DB::select('select * from mails');
+    	$mails = DB::select('select * from mails where estado = 0');
 
-        return view('bandeja', ['mails' => $mails]);
-
-
-    }
-
+        return view('bandeja', ['mails' => $mails]);	
+    }	
+    
 }	

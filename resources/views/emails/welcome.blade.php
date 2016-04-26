@@ -7,7 +7,7 @@
 <h2>Learning Laravel!</h2>
 
 <div>
-    Welcome to {!! $name !!} website!
+    Welcome to {!! $name !!} Tumail.es!
     <br>
     Bienvenido
     Click en el link para comfirmar su cuenta !!!    

@@ -46,7 +46,9 @@ class MailController extends Controller
 }
 
 public function show($id)
-{ 
+{
+  $email=Mail::findOrFail($id);
+  return view('ver',compact('email'));
 }
 
 public function store(Request $request)
@@ -59,61 +61,41 @@ public function store(Request $request)
   return Redirect::to('bandeja')->with('status', '¡Mensaje Enviado!');
 }
 
-/*public function getEmails() {
-    $this->db->where("estado", "Pendiente");
-    $this->db->select("*");
-    $this->db->from('emails');
-    $query = $this->db->get();
-    return ($query->result_array());
-  }*/
+public function getEmails() {
+  $this->db->where("estado", "Pendiente");
+  $this->db->select("*");
+  $this->db->from('emails');
+  $query = $this->db->get();
+  return ($query->result_array());
+}
 
 
-/*public function update_emailStatus($id) {
-    $this->db->where("id", $id);
-    $this->db->set("estado", "Enviado");
-    $this->db->update("emails");
-  }*/
+public function update_emailStatus($id) {
+  $this->db->where("id", $id);
+  $this->db->set("estado", "Enviado");
+  $this->db->update("emails");
+}
 
-  public function Confirmacion($remenber_token) {
-
-
-    $user = DB::table('users')
-    ->where('token', '=',$remenber_token)
-    ->get();
-
-    if ((empty($user))) {
-      return Redirect::to('/auth/login')->with('status', '¡Lo siento mucho, no ha verificado su cuenta!');
-    }
-    else
-    {
-      DB::table('users')
-      ->where('token', $remenber_token)
-      ->update(['status' => 1]);
-      return Redirect::to('/auth/login')->with('status', '¡Bienvenido!');
+public function Confirmacion($remenber_token) {
 
 
-    }
+  $user = DB::table('users')
+  ->where('token', '=',$remenber_token)
+  ->get();
+
+  if ((empty($user))) {
+    return Redirect::to('/auth/login')->with('status', '¡Lo siento mucho, no ha verificado su cuenta!');
   }
-
-   public function verificarRegistro($status) {
-
-
-    $user = DB::table('users')
-    ->where('status', '=',$status)
-    ->get();
-
-    if ($status == 0) {
-      return Redirect::to('/auth/login')->with('status', '¡Lo siento mucho, no ha verificado su cuenta!');
-    }
-    else
-    {
-     
-      return Redirect::to('bandeja')->with('status', '¡Bienvenido!');
+  else
+  {
+    DB::table('users')
+    ->where('token', $remenber_token)
+    ->update(['status' => 1]);
+    return Redirect::to('/auth/login')->with('status', '¡Bienvenido!');
 
 
-    }
   }
-
+}
 
 }
 

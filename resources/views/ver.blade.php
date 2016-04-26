@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 
 <html lang="es">
 
@@ -39,19 +39,17 @@
 
  <form name ="crear">
   <div class = "container col-sm-2" align="left">
-    <div class="btn btn-group-vertical">
-      <div class="btn-group ">
-        <input  type="button" class="btn btn-danger"  value="Redactar" data-toggle="modal" data-target="#myModal"/><br><br>
-        <div class="row">
-          </div>
-        </div>
-        </div>
-
-        <div class="btn-group-vertical">
-      <div class="btn-group"><a href="{{URL::to('bandeja')}}"  id ="btn2"class = " glyphicon phicon envelope btn btn-lg btn-default">  Salida</a>  
-         <button type="button" class="btn btn-default" id="btn1">Enviados</button>
-          <button type="button" class="btn btn-default" id="btn">Salir</button>
-        </div>
+          <div class="btn-group-vertical">
+      <div class = "btn-group">
+        <a href="{{URL::to('mail/create')}}"type="button" class="btn btn-lg btn-success glyphicon glyphicon-pencil">Redactar</a>
+      </div> 
+      <div class="btn-group"><a href="{{URL::to('enviados')}}"  id ="btn2"class = " glyphicon glyphicon-envelope btn btn-lg btn-default">Enviados</a>  
+      </div>
+      <div class="btn-group"><a href="{{URL::to('bandeja')}}"  id ="btn2"class = " glyphicon glyphicon-envelope btn btn-lg btn-default">Salida</a>  
+      </div>
+            <div class="btn-group"><a href="{{URL::to('borrador')}}"  id ="btn2"class = " glyphicon glyphicon-envelope btn btn-lg btn-default">Borrador</a>  
+      </div>
+    </div>
       </div>
     </div>
   </form>
@@ -61,22 +59,16 @@
 
 <div class="form-group">
     <label for="exampleInputEmail1">destino</label>
-    {!!Form::text('destino',null,['class'=>'form-control','placeholder'=>'example@gmail.com,example2@hotmail.com'])!!}
+    {!!Form::text('destino',null,['disabled','class'=>'form-control','placeholder'=>'example@gmail.com,example2@hotmail.com'])!!}
 </div>
 <div class="form-group">
     <label for="example">asunto</label>
-    {!!Form::text('asunto',null,['class'=>'form-control','placeholder'=>'Subject'])!!}
+    {!!Form::text('asunto',null,['disabled','class'=>'form-control','placeholder'=>'Subject'])!!}
 </div>
 <div class="form-group">
     <label for="example">mensaje</label>
-    {!!Form::textarea ('mensaje',null,['class'=>'form-control','placeholder'=>'Write the message here'])!!}
+    {!!Form::textarea ('mensaje',null,['disabled','class'=>'form-control','placeholder'=>'Write the message here'])!!}
 </div>
-<div style="text-align:right">
-{!!Form::open(['route'=>['mail.update' ,$email->id],'method'=>'update'])!!}
-<button type="submit" class="btn btn-danger">Guardar  </button>
-{!!Form::close()!!}
-</div>
-
   </div>
 </div>
 <script src="/js/jquery.js"></script>
